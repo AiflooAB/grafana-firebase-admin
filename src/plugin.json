@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "datasource",
+  "name": "Firebase Admin",
+  "id": "firebase-admin",
+  "metrics": true,
+  "backend": true,
+  "executable": "gpx_firebase-admin",
+  "info": {
+    "description": "Datasource to fetch user data from Firebase Auth (using Firebase Admin SDK)",
+    "author": {
+      "name": "Anton Troyanov",
+      "url": "https://nectarinehealth.com"
+    },
+    "keywords": [
+      "firebase"
+    ],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Website",
+        "url": "https://github.com/AiflooAB/grafana-firebase-admin"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/AiflooAB/grafana-firebase-admin/blob/master/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaDependency": ">=7.0.0",
+    "plugins": []
+  }
+}
