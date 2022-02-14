@@ -65,13 +65,51 @@ A data source backend plugin consists of both frontend and backend components.
    mage -l
    ```
 
+## Development
+This plugin was developed using Node 14, but more recent versions should also work.
+
+Each time you do modifications to the front-end part of the plugin you have to
+execute `yarn build`, and for every change to the backend side (Go code) you have
+to call `mage build:linux` (or different target if you are on a different OS)
+
+Once everything is built, please run Grafana docker container and mount dir that
+contains freshly built plugin.
+
+```bash
+docker run --rm \
+   -p 3000:3000 \
+   -v (pwd)/dist:/var/lib/grafana/plugins/firebase-admin \
+   -e "GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=firebase-admin" \
+   --name=grafana grafana/grafana:7.4.0
+```
+
 ## Sign & Pack
+
+Grafana doesn't recommend running unsigned plugins, thats why we sign them.
+It doesn't really matter which key was used to sign the plugin. Since this
+component is not released very ofter, using developer key should be fine.
+Otherwise a dedicated key for CI/CD pipeline should be used.
+
 To read more about plugin signature [click here](https://grafana.com/docs/grafana/latest/developers/plugins/sign-a-plugin/)
 
 Packing is simple
 ```bash
 zip firebase-admin-1.0.0.zip dist -r
 ```
+
+## Deployment
+
+When starting Grafana, you can provide path to an archive containing plugin via `GF_INSTALL_PLUGINS`
+https://grafana.com/docs/grafana/latest/installation/docker/#install-official-and-community-grafana-plugins
+
+As an example:
+```
+GF_INSTALL_PLUGINS: "https://github.com/AiflooAB/grafana-firebase-admin/releases/download/v1.0.0/firebase-admin-1.0.0.zip;firebase-admin"
+```
+
+This plugin requires the
+[firebaseauth.users.get](https://firebase.google.com/docs/projects/iam/permissions)
+IAM permission in order to function.
 
 ## Learn more
 
