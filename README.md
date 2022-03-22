@@ -66,7 +66,7 @@ A data source backend plugin consists of both frontend and backend components.
    ```
 
 ## Development
-This plugin was developed using Node 14, but more recent versions should also work.
+This plugin was developed using Node.js 14, but more recent versions should also work.
 
 Each time you do modifications to the front-end part of the plugin you have to
 execute `yarn build`, and for every change to the backend side (Go code) you have
