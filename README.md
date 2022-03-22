@@ -10,7 +10,7 @@ For the datasource to work, you need to provide [JSON containing SA key](https:/
 
 ## What is Grafana Data Source Backend Plugin?
 
-Grafana supports a wide range of data sources, including Prometheus, MySQL, and even Datadog. There’s a good chance you can already visualize metrics from the systems you have set up. In some cases, though, you already have an in-house metrics solution that you’d like to add to your Grafana dashboards. Grafana Data Source Plugins enables integrating such solutions with Grafana.
+Grafana supports a wide range of data sources, including Prometheus, MySQL, and even Datadog. There’s a good chance you can already visualize metrics from the systems you have set up. In some cases, though, you already have an in-house metrics solution that you'd like to add to your Grafana dashboards. Grafana Data Source Plugins enables integrating such solutions with Grafana.
 
 For more information about backend plugins, refer to the documentation on [Backend plugins](https://grafana.com/docs/grafana/latest/developers/plugins/backend/).
 
@@ -85,9 +85,9 @@ docker run --rm \
 
 ## Sign & Pack
 
-Grafana doesn't recommend running unsigned plugins, thats why we sign them.
+Grafana doesn't recommend running unsigned plugins—that's why we sign them.
 It doesn't really matter which key was used to sign the plugin. Since this
-component is not released very ofter, using developer key should be fine.
+component is not released very often, using developer key should be fine.
 Otherwise a dedicated key for CI/CD pipeline should be used.
 
 To read more about plugin signature [click here](https://grafana.com/docs/grafana/latest/developers/plugins/sign-a-plugin/)
